@@ -4,25 +4,17 @@ const data = readFileSync(new URL(`data.txt`, import.meta.url), {
   encoding: "utf-8",
 });
 
-const entries = data.split("\n");
-const entryCount = entries.length;
+const entries = data.split("\n").map((x) => parseInt(x, 10));
 
-console.log(`Entries: ${entryCount}`);
-
-for (let i = 0; i < entryCount; i++) {
-  const entry1 = +entries[i];
-  for (let j = i + 1; j < entryCount; j++) {
-    const entry2 = +entries[j];
-
-    for (let k = j + 1; k < entryCount; k++) {
-      const entry3 = +entries[k];
-
-      if (entry1 + entry2 + entry3 === 2020) {
-        console.log(entry1 * entry2 * entry3);
+entries.forEach((entryI, i) => {
+  entries.slice(i + 1).forEach((entryJ, j) => {
+    entries.slice(j + 1).forEach((entryK) => {
+      if (entryI + entryJ + entryK === 2020) {
+        console.log(entryI * entryJ * entryK);
         process.exit();
       }
-    }
-  }
-}
+    });
+  });
+});
 
 console.log("No Match!");
