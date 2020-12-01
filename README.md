@@ -12,5 +12,5 @@ node --experimental-modules  dec0x/part-y.mjs
 
 ## Progress
 
-December 1: Complete on December 1
-December 2: Waiting to open...
+- December 1: Complete on December 1
+- December 2: Waiting to open...
